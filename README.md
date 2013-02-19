@@ -17,11 +17,12 @@
 <li>More arcpy</li>
 <li><a href="http://docs.python.org/2/tutorial/interpreter.html#the-interactive-startup-file">The interactive startup file</a> (2.2.4)</li>
 <li><a href="http://docs.python.org/2/tutorial/classes.html">Scope</a> (9.2 only)</li>
+<li><a href="https://github.com/marigolds6/pythonintermediate">Examples</a> as time allows</li>
 </ul>
 <h2> Hours Three and Four</h2>
 <ul>
 <li><a href="http://www.varunpant.com/posts/how-to-setup-easy_install-on-windows">Easy Install</a> and <a href="http://pypi.python.org/pypi/setuptools">setuptools</a></li>
-<li>Twitter Program!</li>
+<li><a href="https://github.com/marigolds6/pythonintermediate/blob/master/twitter.py">Twitter Program!</a></li>
 <li><a href="http://www.numpy.org/">NumPy</a></li>
 <li><a href="http://pypi.python.org/pypi/GDAL/">GDAL</a></li>
 <li>Field Calculator</li>
