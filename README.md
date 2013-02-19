@@ -2,7 +2,7 @@
 <body>
 <h1>Intermediate Geoprocessing with Python</h1></li>
 <p>The intermediate python course will pick up from the basic course with writing your own modules and classes, including logging. We will examine the standard python library in more detail and cover file I/O, formatting, database cursors, multi-threading, and regular expressions. The second half of the class will cover how to install additional site-packages with easy_install and explore the arcpy library in more detail (including writing expressions for Field Calculations), as well as introduce numpy and GDAL. You should understand the concepts covered in the basic class as a prerequisite to this class. We will be writing our own module with object oriented class implementations to learn the concepts presented.</p>
-<div>Download the course data <a href="http://maptest.stlouisco.com/python/WorldTweets.zip">here</a>.</div>
+<div>Download the course data <a href="http://maptest.stlouisco.com/python/WorldTweets.zip">here</a>. Extract into C:\ArcGIS.</div>
 <div>Start with this survey:<br><a href="http://www.surveymonkey.com/s/HRTFPPN">Intermediate Python Survey</a></div></li>
 <h2>Hour One</h2>
 <ul>
