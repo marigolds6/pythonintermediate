@@ -77,19 +77,19 @@ def changeClusterSite(httpConn,params,cluster="default"):
     """Change the cluster for all services in an ArcGIS Server site.
 
     Keyword arguments:
-    httpConn: An httplib.HTTPCOnnection connection to an ArcGIS Server machine
-    params: the urlencoded parameters to connect to the site
-    cluster: the cluster name to which the services are being moved (default "default")"""
+    httpConn -- An httplib.HTTPCOnnection connection to an ArcGIS Server machine
+    params -- the urlencoded parameters to connect to the site
+    cluster -- the cluster name to which the services are being moved (default "default")"""
     changeClusterSubfolders(httpConn,params,"ROOT",cluster)
 
 def changeClusterSubfolders(httpConn,params,folder,cluster="default"):
     """Change the cluster for all services in a given folder and all services in subfolders of that folder.
 
     Keyword arguments:
-    httpConn: An httplib.HTTPCOnnection connection to an ArcGIS Server machine
-    params: the urlencoded parameters to connect to the site
-    folder: the target folder
-    cluster: the cluster name to which the services are being moved (default "default")"""
+    httpConn -- An httplib.HTTPCOnnection connection to an ArcGIS Server machine
+    params -- the urlencoded parameters to connect to the site
+    folder -- the target folder
+    cluster -- the cluster name to which the services are being moved (default "default")"""
     changeClusterFolder(httpConn,params,folder,cluster)
     httpConn.request("POST",getFolderURL(folder),params,getHttpHeaders())
     # Read response
@@ -122,10 +122,10 @@ def changeClusterFolder(httpConn,params,folder,cluster="default"):
     """Change the cluster for all services in a given folder, but not subfolders.
 
     Keyword arguments:
-    httpConn: An httplib.HTTPCOnnection connection to an ArcGIS Server machine
-    params: the urlencoded parameters to connect to the site
-    folder: the target folder
-    cluster: the cluster name to which the services are being moved (default "default")"""
+    httpConn -- An httplib.HTTPCOnnection connection to an ArcGIS Server machine
+    params -- the urlencoded parameters to connect to the site
+    folder -- the target folder
+    cluster -- the cluster name to which the services are being moved (default "default")"""
     print "Changing cluster to '" + str(cluster) + "' for all services in folder " + str(folder) + "."
     httpConn.request("POST", getFolderURL(folder), params, getHttpHeaders())
     # Read response
@@ -157,11 +157,11 @@ def changeCluster(httpConn,params,folder, service, cluster="default"):
     """Change the cluster for a given ArcGIS Server service.
 
     Keyword arguments:
-    httpConn: An httplib.HTTPCOnnection connection to an ArcGIS Server machine
-    params: the urlencoded parameters to connect to the site
-    folder: the folder in which the service resides
-    service: the full service name of the service as Name.type
-    cluster: the cluster name to which the services are being moved (default "default")"""
+    httpConn -- An httplib.HTTPCOnnection connection to an ArcGIS Server machine
+    params -- the urlencoded parameters to connect to the site
+    folder -- the folder in which the service resides
+    service -- the full service name of the service as Name.type
+    cluster -- the cluster name to which the services are being moved (default "default")"""
     # Construct service URL, then get its current JSON definition
     serviceURL = "/arcgis/admin/services/" + getFolder(folder) + service
     httpConn.request("POST", serviceURL, params, getHttpHeaders())
