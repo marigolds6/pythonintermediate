@@ -118,7 +118,7 @@ def changeClusterSubfolders(httpConn,params,folder,cluster="default"):
         if not assertJsonSuccess(data):          
             print "Error when reading folder information. " + str(data)
         else:
-            print "Folder properties read."
+            print print "Folder properties read for folder " + str(folder) + "."
 
         # Deserialize response into Python object
         dataObj = json.loads(data)
@@ -156,7 +156,7 @@ def changeClusterFolder(httpConn,params,folder,cluster="default"):
         if not assertJsonSuccess(data):          
             print "Error when reading folder information. " + str(data)
         else:
-            print "Folder properties read."
+            print print "Folder properties read for folder " + str(folder) + "."
 
         # Deserialize response into Python object
         dataObj = json.loads(data)
