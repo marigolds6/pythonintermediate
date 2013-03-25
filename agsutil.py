@@ -38,7 +38,7 @@ def getClusterName(cluster):
         return None
 
 def getMachines(cluster):
-    """Return name for a cluster given a cluster dictionary
+    """Return list of machines in a cluster given a cluster dictionary
 
     Useful for mapping a list of clusters to a list of lists of machines in each cluster
     Example: map(getClusterName,getClusters(*inputTokenParams()))
