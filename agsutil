@@ -1,4 +1,3 @@
-"""Utilities for connecting to an ArcGIS server admin API"""
 # For Http calls
 import httplib
 import urllib
@@ -6,9 +5,82 @@ import json
 
 # For reading passwords without echoing
 import getpass
-            
-def inputTokenParams():
-    """Return tuple of serverName, serverPort,and token from raw_input parameters."""
+
+
+def getClusters(serverName,serverPort,token,clusterURL="/arcgis/admin/clusters"):
+    """Return a list of clusters (as dict) on a site
+
+    Example: getClusters(*inputTokenParams())
+
+    """
+    clustersObj = getClustersObject(serverName,serverPort,token,clusterURL="/arcgis/admin/clusters")
+    return clustersObj['clusters']
+
+def getStartedClusters(serverName,serverPort,token,clusterURL="/arcgis/admin/clusters"):
+    """Return a list of started clusters (as dict) on a site
+
+    Example: getStartedClusters(*inputTokenParams())
+
+    """
+    clustersObj = getClustersObject(serverName,serverPort,token,clusterURL="/arcgis/admin/clusters")
+    return [i for i in clustersObj['clusters'] if i['configuredState'] == 'STARTED']
+    
+def getClusterName(cluster):
+    """Return name for a cluster given a cluster dictionary
+
+    Useful for mapping a list of clusters to a list of cluster names
+    Example: map(getClusterName,getClusters(*inputTokenParams()))
+
+    """
+    if isinstance(cluster,dict):
+        return cluster.get('clusterName')
+    else:
+        return None
+
+def getMachines(cluster):
+    """Return name for a cluster given a cluster dictionary
+
+    Useful for mapping a list of clusters to a list of lists of machines in each cluster
+    Example: map(getClusterName,getClusters(*inputTokenParams()))
+
+    """
+    if isinstance(cluster,dict):
+        return cluster.get('machineNames')
+    else:
+        return None
+
+def getClustersObject(serverName,serverPort,token,clusterURL="/arcgis/admin/clusters"):
+    """Return dict representation of clusters given connection information for a site
+
+    Example: clustersObj = getClustersObject(*inputTokenParams())
+
+    """
+    params = urllib.urlencode({'token': token, 'f': 'json'})
+    httpConn = httplib.HTTPConnection(serverName, serverPort)
+    httpConn.request("POST",clusterURL,params,getHttpHeaders())
+    clusterResponse = httpConn.getresponse()
+    if (clusterResponse.status != 200):
+        httpConn.close()
+        print "Error while reading service." + str(service) + "Please check the URL and try again."
+        return
+    else:
+        clusterData = clusterResponse.read()
+        
+        # Check that data returned is not an error object
+        if not assertJsonSuccess(clusterData):
+            print "Error when reading service information. " + str(clusterData)                    
+        else:
+            print "\tCluster information from server " + serverName + " read successfully."
+    clustersObj = json.loads(clusterData)
+    httpConn.close()
+    return clustersObj
+
+def inputTokenParams(tokenURL="/arcgis/admin/generateToken"):
+    """Return tuple of serverName, serverPort,and token from raw_input parameters.
+
+    token is None if getToken is unable to authenticate.
+
+    """
     # Ask for admin/publisher user name and password
     username = raw_input("Enter user name: ")
     password = getpass.getpass("Enter password: ")
@@ -20,7 +92,7 @@ def inputTokenParams():
     print "Obtaining token"
 
     # Get a token
-    token = getToken(username, password, serverName, serverPort)
+    token = getToken(username, password, serverName, serverPort, tokenURL)
     if (token[2] == "" or token[2] == None):
         print "Could not generate a token with the username and password provided."
         token[2] == None
@@ -56,6 +128,8 @@ def getFolder(folder):
 
 def getToken(username, password, serverName, serverPort=6080,tokenURL="/arcgis/admin/generateToken"):
     """Return an ArcGIS Server token as (serverName,serverPort,token) given username, password and adminURL.
+
+    token is None if an error is returned during authentication
 
     Keyword arguemnts:
     username -- administrative login username
