@@ -4,8 +4,8 @@ The intermediate python course will pick up from the basic course with advanced 
 Unofficial Windows Binaries for Python Extension Packages page
 http://www.lfd.uci.edu/~gohlke/pythonlibs/
 
-Download the [sample data](https://www.dropbox.com/s/ewanlg0vhm9rkv7/Assignment3.zip)  
 ##Hour One
+Download the [sample data](https://www.dropbox.com/s/ewanlg0vhm9rkv7/Assignment3.zip)  
 * Recapping tools (and check our paths)
 * Virtualenv
 * Field Calculator
