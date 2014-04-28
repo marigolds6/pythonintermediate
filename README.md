@@ -21,6 +21,7 @@ Install requests http://www.lfd.uci.edu/~gohlke/pythonlibs/#requests
 
 ##Hour Three
 * More on cursors
+* "Summarize" Demo
 * Geocode Demo
 * Wifi Sites Demo Continued
 
