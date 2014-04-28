@@ -1,4 +1,3 @@
-
 # Import script modules
 import arcpy
 from sdeconn import connect
