@@ -29,7 +29,7 @@ Install requests http://www.lfd.uci.edu/~gohlke/pythonlibs/#requests
 Download the [4-band image of Faust Park](https://www.dropbox.com/s/l3zs3icbijkg80v/faust.tif.zip)  
 Download the [Sirens file](https://www.dropbox.com/s/6utd50wr6pvqtmv/Sirens.shp.zip)  
 Install GDAL, six, and fiona  
-Upgrade numpy and install rasterio  
+Upgrade numpy and install rasterio (not on your own laptop)  
 * Short Multithreading demo  
 * Multi-ring buffer with fiona and shapely
 * NDVI with rasterio
