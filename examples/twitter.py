@@ -1,4 +1,3 @@
-
 ##
 # Find what people are tweeting about for a specific query or keyword in the top 10 most 
 # populated cities in the world and map it.
