@@ -1,31 +1,33 @@
-<html>
-<body>
-<h1>Intermediate Geoprocessing with Python</h1></li>
-<p>The intermediate python course will pick up from the basic course with writing your own modules and classes, including logging. We will examine the standard python library in more detail and cover file I/O, formatting, database cursors, multi-threading, and regular expressions. The second half of the class will cover how to install additional site-packages with easy_install and explore the arcpy library in more detail (including writing expressions for Field Calculations), as well as introduce numpy and GDAL. You should understand the concepts covered in the basic class as a prerequisite to this class. We will be writing our own module with object oriented class implementations to learn the concepts presented.</p>
-<div>Download the course data <a href="http://maptest.stlouisco.com/python/WorldTweets.zip">here</a>. Extract into C:\ArcGIS.</div>
-<div>Start with this survey:<br><a href="http://www.surveymonkey.com/s/HRTFPPN">Intermediate Python Survey</a></div></li>
-<h2>Hour One</h2>
-<ul>
-<li><a href="http://docs.python.org/2/tutorial/controlflow.html#defining-functions">Defining Functions</a> (4.6-4.7.3)</li>
-<li><a href="http://docs.python.org/2/tutorial/datastructures.html#tuples-and-sequences">Data Structures</a> (5.3-5.5)</li>
-<li><a href="http://docs.python.org/2/tutorial/stdlib.html#operating-system-interface">os</a> module (10.1)</li>
-<li><a href="http://docs.python.org/2/tutorial/stdlib.html#dates-and-times">datetime</a> module (10.8)</li>
-</ul>
-<h2>Hour Two</h2>
-<ul>
-<li>Scheduling Tasks</li>
-<li>More arcpy</li>
-<li><a href="http://docs.python.org/2/tutorial/interpreter.html#the-interactive-startup-file">The interactive startup file</a> (2.2.4)</li>
-<li><a href="http://docs.python.org/2/tutorial/classes.html">Scope</a> (9.2 only)</li>
-<li><a href="https://github.com/marigolds6/pythonintermediate">Examples</a> as time allows</li>
-</ul>
-<h2> Hours Three and Four</h2>
-<ul>
-<li><a href="http://www.varunpant.com/posts/how-to-setup-easy_install-on-windows">Easy Install</a> and <a href="http://pypi.python.org/pypi/setuptools">setuptools</a></li>
-<li><a href="https://github.com/marigolds6/pythonintermediate/blob/master/twitter.py">Twitter Program!</a></li>
-<li><a href="http://www.numpy.org/">NumPy</a></li>
-<li><a href="http://pypi.python.org/pypi/GDAL/">GDAL</a></li>
-<li>Field Calculator</li>
-</ul>
-</body>
-</html>
+#Intermediate Geoprocessing with Python
+The intermediate python course will pick up from the basic course with advanced techniques including cursors, string formatting, multi-threading, and regular expressions. We will take advantage of advanced tools such as virtualenv and utilize http communication. In the last hour, we will explore open source options for geoprocessing. You should understand the concepts covered in the basic class as a prerequisite to this class.
+  
+Unofficial Windows Binaries for Python Extension Packages page
+http://www.lfd.uci.edu/~gohlke/pythonlibs/
+
+##Hour One
+* Recapping tools (and check our paths)
+* Virtualenv
+* Field Calculator
+* String format
+  
+##Hour Two
+Download the [zip code data from dropbox](https://www.dropbox.com/s/yn5usq1zenvszem/MO_1992_Zip_Code_Areas_shp.zip)  
+Install requests http://www.lfd.uci.edu/~gohlke/pythonlibs/#requests  
+* Requests and Web Communication: Wifi Sites Demo
+* Regexp
+* Basic Cursors
+* Rewriting ameren.py
+
+##Hour Three
+* More on cursors
+* Geocode Demo
+* Wifi Sites Demo Continued
+
+##Hour Four
+Download the [4-band image of Faust Park](https://www.dropbox.com/s/l3zs3icbijkg80v/faust.tif.zip)  
+Download the [Sirens file](https://www.dropbox.com/s/6utd50wr6pvqtmv/Sirens.shp.zip)  
+Install GDAL, six, and fiona  
+Upgrade numpy and install rasterio  
+* Short Multithreading demo  
+* Multi-ring buffer with fiona and shapely
+* NDVI with rasterio
